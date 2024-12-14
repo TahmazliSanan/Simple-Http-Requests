@@ -24,7 +24,7 @@ namespace SimpleHttpRequests
                 var response = await httpClient.GetStringAsync(apiUrl);
 
                 // Convert JSON to class
-                var catFact = JsonConvert.DeserializeObject<CatFact>(response);
+                var catFact = (CatFact)JsonConvert.DeserializeObject(response, typeof(CatFact));
                 Console.WriteLine($"Fact: {catFact.Fact}");
 
                 Console.WriteLine("----------------------------------------------------------------");
